@@ -10,7 +10,7 @@ import requests
 from traitlets import TraitType
 from dash import Dash, dcc, html, Input, Output
 
-app = dash.Dash(__name__)
+app1 = dash.Dash(__name__)
 
 data1 = requests.get('http://10.107.226.241/tracking_labor2.php')
 jsondata1 = data1.json()
@@ -132,7 +132,7 @@ divarea = html.Div(
     ]
 )
 #app.css.append_css({"https://codepen.io/chriddyp/pen/bWLwgP.css"})
-app.layout = html.Div([dd])
+app1.layout = html.Div([dd])
 
 if __name__ == "__main__":
-    app.run_server(debug=False)
+    app1.run_server()
