@@ -2,7 +2,6 @@ from dash import Dash, dcc, html, Input, Output, dash_table, no_update,State  # 
 import plotly.express as px
 import pandas as pd
 import plotly.graph_objs as go
-from conn1 import df
 import dash_bootstrap_components as dbc
 import numpy as np
 from plotly.subplots import make_subplots
@@ -10,9 +9,10 @@ import dash
 
 #external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
+df = pd.read_excel('df.xlsx')
 #appsd = Dash(__name__,title="SameDay", external_stylesheets=[dbc.themes.MORPH],requests_pathname_prefix='/sameday/')
 appsd = dash.Dash(__name__,title="SameDay", external_stylesheets=[dbc.themes.MORPH, dbc.icons.FONT_AWESOME],requests_pathname_prefix='/sameday/')
-PLOTLY_LOGO = "http://10.107.226.241/assets/caja.png"
+PLOTLY_LOGO = "caja.png"
 
 dff=df
 etas = dff.ETA.unique()
@@ -78,7 +78,7 @@ sidebar = html.Div(
                         html.I(className="fa fa-bar-chart"),
                         html.Span(" Despachos DD/C&C"),
                     ],
-                    href="http://10.107.226.241:8050/clu",
+                    href="localhost:8050/clu",
                     active="partial",
                 ),
                 dbc.NavLink(
@@ -86,7 +86,7 @@ sidebar = html.Div(
                         html.I(className="fa fa-hourglass-end"),
                         html.Span(" Antiguedad"),
                     ],
-                    href="http://10.107.226.241:8050/antiguedad/",
+                    href="localhost:8050/antiguedad/",
                     active="exact",
                 ),
                 dbc.NavLink(
@@ -94,7 +94,7 @@ sidebar = html.Div(
                         html.I(className="fa fa-pie-chart"),
                         html.Span(" Stock100"),
                     ],
-                    href="http://10.107.226.241:8050/stock/",
+                    href="localhost:8050/stock/",
                     active="exact",
                 ),
                 dbc.NavLink(
@@ -102,7 +102,7 @@ sidebar = html.Div(
                         html.I(className="fa fa-bar-chart"),
                         html.Span(" Traspasos"),
                     ],
-                    href="http://10.107.226.241:8050/traspasos/",
+                    href="localhost:8050/traspasos/",
                     active="exact",
                 ),
                 dbc.NavLink(
@@ -110,7 +110,7 @@ sidebar = html.Div(
                         html.I(className="fa fa-users"),
                         html.Span(" Tracking"),
                     ],
-                    href="http://10.107.226.241:8050/app2",
+                    href="localhost:8050/app2",
                     active="exact",
                 ),
                 dbc.NavLink(
@@ -118,7 +118,7 @@ sidebar = html.Div(
                         html.I(className="fa fa-tasks"),
                         html.Span(" Ordenes"),
                     ],
-                    href="http://10.107.226.241:8050/pkt",
+                    href="localhost:8050/pkt",
                     active="exact",
                 ),
                 dbc.NavLink(
@@ -126,7 +126,7 @@ sidebar = html.Div(
                         html.I(className="fa fa-truck"),
                         html.Span(" Despacho SameDay"),
                     ],
-                    href="http://10.107.226.241:8050/sameday/",
+                    href="localhost:8050/sameday/",
                     active="exact",
                 ),
             ],

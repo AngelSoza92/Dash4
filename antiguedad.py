@@ -2,13 +2,14 @@ from dash import Dash, dcc, html, Input, Output, dash_table, no_update,State  # 
 import plotly.express as px
 import pandas as pd
 import plotly.graph_objs as go
-from conn1 import df2 as df
 import dash_bootstrap_components as dbc
 import numpy as np
 import dash
 from plotly.subplots import make_subplots
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
+df = pd.read_excel('df2.xlsx')
 
 appa = dash.Dash(__name__,title="Antiguedad",external_stylesheets=[dbc.themes.MORPH, dbc.icons.FONT_AWESOME],requests_pathname_prefix='/antiguedad/')
 
